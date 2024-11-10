@@ -18,18 +18,20 @@ STEP 4:Apply the various data visualization tools wherever necessary.
 STEP 5:Include Necessary parameters in each functions.
 
 # Coding and Output:
+```
 import seaborn as sns
 import matplotlib.pyplot as plt
 x=[1,2,3,4,5]
 y=[3,6,2,7,1]
 sns.lineplot(x=x,y=y)
 plt.show()
-
+```
 ![image](https://github.com/user-attachments/assets/67e96aed-1336-404e-a855-a3f3c22ec348)
-
+```
 df=sns.load_dataset("tips")
 df
-
+```
+```
 	total_bill	tip	sex	smoker	day	time	size
 0	16.99	1.01	Female	No	Sun	Dinner	2
 1	10.34	1.66	Male	No	Sun	Dinner	3
@@ -43,13 +45,13 @@ df
 242	17.82	1.75	Male	No	Sat	Dinner	2
 243	18.78	3.00	Female	No	Thur	Dinner	2
 244 rows × 7 columns
-
-
+```
+```
 sns.lineplot(x="total_bill",y="tip",data=df,hue="sex",linestyle="solid",legend="auto")
-
+```
 ![image](https://github.com/user-attachments/assets/f34b51c0-3153-4a5c-ae47-a2a9b99b021a)
 
-
+```
 x=[1,2,3,4,5]
 y1=[3,5,2,6,1]
 y2=[1,6,4,3,8]
@@ -60,14 +62,15 @@ sns.lineplot(x=x,y=y3)
 plt.title('Multi-Line Plot')
 plt.xlabel('X Label')
 plt.ylabel('Y Label')
-
+```
 
 ![image](https://github.com/user-attachments/assets/5a576d17-18ae-4110-90af-17b1488e36cb)
 
-
+```
 df=sns.load_dataset("tips")
 df
-
+```
+```
 	total_bill	tip	sex	smoker	day	time	size
 0	16.99	1.01	Female	No	Sun	Dinner	2
 1	10.34	1.66	Male	No	Sun	Dinner	3
@@ -81,8 +84,8 @@ df
 242	17.82	1.75	Male	No	Sat	Dinner	2
 243	18.78	3.00	Female	No	Thur	Dinner	2
 244 rows × 7 columns
-
-
+```
+```
 tips=sns.load_dataset('tips')
 avg_total_bill=tips.groupby('day')['total_bill'].mean()
 avg_tip=tips.groupby('day')['tip'].mean()
@@ -97,11 +100,11 @@ plt.ylabel('Amount')
 plt.title('Average Total Bill and Tip by Day')
 plt.legend()
 plt.show()
-
+```
 
 ![image](https://github.com/user-attachments/assets/de5073df-2ad2-47cd-9f1e-a6a172aec13c)
 
-
+```
 avg_total_bill=tips.groupby('time')['total_bill'].mean()
 avg_tip=tips.groupby('time')['tip'].mean()
 p1=plt.bar(avg_total_bill.index,avg_total_bill,label='Total Bill',width=0.4)
@@ -110,34 +113,35 @@ plt.xlabel('Time of Day')
 plt.ylabel('Amount')
 plt.title('Average Total Bill and Tip by Time of Day')
 plt.legend()
-
+````
 
 ![image](https://github.com/user-attachments/assets/a7198707-6a0d-4261-855e-a2a11b1c0dea)
 
-
+```
 years=range(2000,2012)
 apples=[0.895,0.91,0.919,0.926,0.929,0.931,0.934,0.936,0.937,0.9375,0.9372,0.939]
 oranges=[0.962,0.941,0.930,0.923,0.18,0.908,0.907,0.904,0.901,0.898,0.9,0.896]
 plt.bar(years,apples)
 plt.bar(years,oranges,bottom=apples)
-
+```
 ![image](https://github.com/user-attachments/assets/a9d011ee-88fd-4474-98ef-14b4a3b6bd36)
-
+```
 import seaborn as sns
 dt=sns.load_dataset('tips')
 sns.barplot(x='day',y='total_bill',hue='sex',data=dt,palette='Set1')
 plt.xlabel('Day of the week')
 plt.ylabel('Total Bill')
 plt.title('Total Bill by Day and Gender')
-
+```
 
 ![image](https://github.com/user-attachments/assets/20e22c11-3d25-40a7-8a7d-153c81ecbb11)
 
-
+```
 import pandas as pd
 tit=pd.read_csv("/content/titanic_dataset.csv")
 tit
-
+```
+```
 PassengerId	Survived	Pclass	Name	Sex	Age	SibSp	Parch	Ticket	Fare	Cabin	Embarked
 0	1	0	3	Braund, Mr. Owen Harris	male	22.0	1	0	A/5 21171	7.2500	NaN	S
 1	2	1	1	Cumings, Mrs. John Bradley (Florence Briggs Th...	female	38.0	1	0	PC 17599	71.2833	C85	C
@@ -151,36 +155,37 @@ PassengerId	Survived	Pclass	Name	Sex	Age	SibSp	Parch	Ticket	Fare	Cabin	Embarked
 889	890	1	1	Behr, Mr. Karl Howell	male	26.0	0	0	111369	30.0000	C148	C
 890	891	0	3	Dooley, Mr. Patrick	male	32.0	0	0	370376	7.7500	NaN	Q
 891 rows × 12 columns
-
-
+```
+```
 plt.figure(figsize=(8,5))
 sns.barplot(x='Embarked',y='Fare',data=tit,palette='rainbow')
 plt.title("Fare of Passenger by Embarked Town")
-
+```
 ![image](https://github.com/user-attachments/assets/2ed98b08-224d-43c5-aa4a-040dc65a0c6b)
-
+```
 plt.figure(figsize=(8,5))
 sns.barplot(x='Embarked',y='Fare',hue='Pclass',data=tit,palette='rainbow')
 plt.title("Fare of Passenger by Embarked Town,Divided by Class")
-
+```
 ![image](https://github.com/user-attachments/assets/ed745214-5cb8-4d5d-9dab-7fb18820aea3)
-
+```
 import seaborn as sns
 tips=sns.load_dataset('tips')
 sns.scatterplot(x='total_bill',y='tip',hue='sex',data=tips)
 plt.xlabel('Total Bill')
 plt.ylabel('Tip Amount')
 plt.title('Scatter Plot of Total Bill vs. Tip Amount')
-
+```
 ![image](https://github.com/user-attachments/assets/827aeb38-70d5-4c75-b2c4-dee49f4889ba)
-
+```
 import numpy as np
 import pandas as pd
 np.random.seed(1)
 num_var=np.random.randn(1000)
 num_var=pd.Series(num_var,name="Numerical variable")
 num_var
-
+```
+```
 Numerical variable
 0	1.624345
 1	-0.611756
@@ -194,13 +199,34 @@ Numerical variable
 998	0.353870
 999	-0.186955
 1000 rows × 1 columns
-
+```
+```
 sns.histplot(data=num_var,kde=True)
-
+```
 ![image](https://github.com/user-attachments/assets/891f0a92-7562-46a0-8cda-e0f5cc977f97)
+```
+import seaborn as sns 
+import pandas as pd
+tips=sns.load_dataset('tips')
+sns.boxplot(x=tips['day'],y=tips['total_bill'],hue=tips['sex'])
+```
+![image](https://github.com/user-attachments/assets/ae5aba4b-2d56-4f9f-bcf2-42ff53df63f0)
 
+```
+sns.boxplot(x="day",y="total_bill",hue="smoker",data=tips,linewidth=2,width=0.6,boxprops={"facecolor":"lightblue","edgecolor":"darkblue"},
+ whiskerprops={"color":"black","linestyle":"--","linewidth":1.5},capprops={"color":"black","linestyle":"--","linewidth":1.5})
+```
+![image](https://github.com/user-attachments/assets/7f2467ed-0f39-4329-8a7d-d1ac395bd8ca)
 
+```
+sns.violinplot (x="day",y="total_bill",hue="smoker",data=tips,linewidth=2,width=0.6,palette="Set3",inner="quartile")
+plt.xlabel("Day of the Week")
+plt.ylabel("Total Bill")
+plt.title("Violin Plot of Total Bill by Day and Smoker Status")
+```
 
+![image](https://github.com/user-attachments/assets/112f8605-34a7-4c32-bd73-7c8c14a38310)
 
 # Result:
- Include your result here
+ Thus Data Visualization using seaborn python library for the given datas has been performed.
+
